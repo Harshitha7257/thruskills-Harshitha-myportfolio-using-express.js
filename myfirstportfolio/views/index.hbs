@@ -1,0 +1,107 @@
+<!-- Page Content -->
+<div class="container" style="padding: 20px 0px;">
+    <div class="row">
+        <div class="col-lg-9">
+            <h3>Hi, I'm Harshitha R Kumar</h3>
+            <p class="lead" style="text-align:justify;">I am a web developer with a knowledge in front end and back end
+                language,responsive frame work,database, and code practices. My objective is simply to be the best web
+                developer that I can be and to contribute to the technology industry all that I know and can do. In this
+                project I learnt how to build my own portfolio app using all frontend and backend language, framework,
+                database which I learnt from Thruskills. Now I am able build a website which is responsive. This project
+                includes all the aspects of the full stack development. A very small project though but can be really
+                good to start learning MEAN.</p>
+        </div>
+        <div class="col-lg-3">
+            <img class="img-thumbnail" src="/images/harshitha.jpg">
+        </div>
+    </div>
+
+    <!-- Subscriptipon -->
+
+    <hr>
+    <div class="row">
+        <div class="col-lg-7">
+            <h2>Subscribe to my Newsletter</h2>
+        </div>
+        <div class="col-lg-5 ">
+            <form action='/subscribe'class="form-inline" method="POST">
+
+                <label for="email"></label>
+                <input type="email" class="form-control" id="email" placeholder="Please enter your email" name="email">
+                <button type="submit" class="btn btn-primary ml-3">Subscribe</button>
+            </form>
+            {{#if success}}
+        <p class="text-success">Subscribed successfully</p>
+        {{/if}}
+        </div>
+    </div>
+
+    <!-- Recent Projects -->
+
+    <hr>
+    <div class="row">
+        <div class="col-lg-12 d-flex justify-content-between">
+            <h2 class="text-bold text-left"><u>Recent Projects</u></h2>
+            <a class="text-right" href="/projects">View All</a>
+        </div>
+    </div>
+    <!-- Project details -->
+    <main>
+        <div class="container mb-5">
+            <div class="row ">
+                {{#each projects}}
+                <div class="col-lg-4 my-4">
+                    <div class="card shadow">
+                        <img class="card-img-top" src="{{this.image}}" alt="Card image">
+                        <div class="overlay-img card-bg ">
+                            <div class="card-logo">
+                                <h3 class="text-white text-center">{{this.heading}}</h3>
+                            </div>
+                            <a href="/projects/{{_id}}">
+                                <div class="overlay">
+                                    <h2 class="text-light project-title ">{{this.title}}</h2>
+                                    <p class="text-light project-desc">{{this.description}}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </main>
+
+    <!-- Recent posts -->
+
+    <hr>
+    <div class="row">
+        <div class="col-lg-12 d-flex justify-content-between">
+            <h2 class="text-bold text-left"><u>Recent Posts</u></h2>
+            <a class="text-right" href="/blog-details">View All</a>
+        </div>
+    </div>
+
+    <!-- Blog details -->
+    <!-- Box-01 -->
+    <div class="row">
+        {{#each blog}}
+        <div class="col-md-12">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250 bg">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-primary">Bootstrap</strong>
+
+                    <h3 style="font-weight: bold; font-size: 18px;">
+                        {{title}}
+                    </h3>
+
+                    <div class="mb-1 text-muted" style="padding:10px 0px;">{{date}}</div>
+                    <a href="/blog/{{_id}}" class="bc-item">Continue
+                        reading</a>
+                </div>
+                <img class="card-img-right flex-auto d-none d-lg-block" src="{{image}}">
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+</body>
