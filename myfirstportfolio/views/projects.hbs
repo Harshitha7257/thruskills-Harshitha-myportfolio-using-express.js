@@ -1,0 +1,42 @@
+<!-- Project  -->
+<main>
+  <div class="container mb-5">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb color">
+        <li class="breadcrumb-item bc-item"><a class="text-white" href="/">Home</a></li>
+        <li class="breadcrumb-item bc-item"><a class="text-white" href="/projects">Projects</a></li>
+      </ol>
+    </nav>
+    <div class="row ">
+      {{#each projects}}
+      <div class="col-lg-4 my-4">
+        <div class="card shadow">
+          <img class="card-img-top" src="{{this.image}}" alt="Card image">
+          <div class="overlay-img card-bg ">
+            <div class="card-logo">
+              <h3 class="text-white text-center">{{this.heading}}</h3>
+            </div>
+            <a href="/projects/{{_id}}">
+              <div class="overlay">
+                <h2 class="text-light project-title ">{{this.title}}</h2>
+                <p class="text-light project-desc">{{this.description}}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</main>
+<!--Pagination  -->
+<ul class="pagination justify-content-center">
+  <li class="page-item"><a class="page-link" href="/projects">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="/projects/0">1</a></li>
+  <li class="page-item"><a class="page-link" href="/projects/1">2</a></li>
+  <li class="page-item"><a class="page-link" href="/projects/2">3</a></li>
+  <li class="page-item"><a class="page-link" href="/projects/3">4</a></li>
+  <li class="page-item"><a class="page-link" href="/projects/4">5</a></li>
+  <li class="page-item"><a class="page-link" href="/projects/5">6</a></li>
+  <li class="page-item"><a class="page-link" href="/projects/5">Next</a></li>
+</ul>

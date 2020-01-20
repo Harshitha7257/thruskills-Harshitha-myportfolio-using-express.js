@@ -1,0 +1,142 @@
+<!--Blog-details-->
+<div class="py-3 bgdark">
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Categories links -->
+            <div class="col-md-3 project-detail-sb">
+                <div class="project-sidebar-block ">
+                    <div class="card text-dark item">
+                        <div class="card-body">
+                            <h2 class="card-title ">Categories</h2>
+                            <div class="project-sidebar-links">
+                                <a href="https://www.w3schools.com/" class="bc-item text-dark">HTML</a>
+                            </div>
+                            <div class="project-sidebar-links">
+                                <a href="https://developer.mozilla.org" class="bc-item text-dark">CSS</a>
+                            </div>
+                            <div class="project-sidebar-links">
+                                <a href="https://www.w3schools.com/js/" class="bc-item text-dark">JavaScript</a>
+                            </div>
+                            <div class="project-sidebar-links">
+                                <a href="https://nodejs.org" class="bc-item text-dark">Node.js</a>
+                            </div>
+                            <div class="project-sidebar-links">
+                                <a href="https://expressjs.com" class="bc-item text-dark">Express</a>
+                            </div>
+                            <div class="project-sidebar-links">
+                                <a href="https://www.mongodb.com/" class="bc-item text-dark">MongoDB</a>
+                            </div>
+                            <div class="project-sidebar-links">
+                                <a href="https://getbootstrap.com/" class="bc-item text-dark">Bootsrap</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <hr>
+
+                <!-- Archive links -->
+                <div class="project-sidebar-block">
+                    <div class="card cardcolor text-dark item">
+                        <div class="card-body">
+                            <h2 class="card-title">Related Posts</h2>
+                            <div class="project-sidebar-links">
+                                <div class="project-sidebar-links">
+                                    <a href="/blog/0" class="bc-item text-dark">Bootstrap</a>
+                                </div>
+                                <div class="project-sidebar-links">
+                                    <a href="/blog/1" class="bc-item text-dark">Node</a>
+                                </div>
+                                <div class="project-sidebar-links">
+                                    <a href="/blog/2" class="bc-item text-dark">Express</a>
+                                </div>
+                                <div class="project-sidebar-links">
+                                    <a href="/blog/3" class="bc-item text-dark">MongoDB</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Heading -->
+            <div class="col-md-9">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb color">
+                        <li class="breadcrumb-item bc-item"><a class="text-white" href="/">Home</a></li>
+                        <li class="breadcrumb-item bc-item"><a class="text-white" href="/blog">Blog</a></li>
+                        <li class="breadcrumb-item text-white" aria-current="page">{{details.title}}</li>
+                    </ol>
+                </nav>
+
+                <!-- Project content -->
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h1 class="display-3 card-title text-dark">{{details.title}}</h1>
+                        <div id="demo" class="carousel slide" data-ride="carousel">
+
+                            <!-- Indicators -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                                <li data-target="#demo" data-slide-to="1"></li>
+                                <li data-target="#demo" data-slide-to="2"></li>
+                            </ul>
+
+                            <!-- The slideshow -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="/images/img-08.jpg" alt="Los Angeles" width="1100"
+                                        height="500">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/images/img09.jpg" alt="Chicago" width="1100" height="500">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="/images/img-10.jpg" alt="New York" width="1100"
+                                        height="500">
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#demo" data-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+                <!-- Comment section -->
+                <div class="form-label-group">
+                    <br>
+                    <textarea name="Comments:" id="comments" rows="5" class="form-control"
+                        placeholder="Comments"></textarea>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Pagination  -->
+    <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link" href="/blog">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="/blog/0">1</a></li>
+        <li class="page-item"><a class="page-link" href="/blog/1">2</a></li>
+        <li class="page-item"><a class="page-link" href="/blog/2">3</a></li>
+        <li class="page-item"><a class="page-link" href="/blog/3">4</a></li>
+        <li class="page-item"><a class="page-link" href="">Next</a></li>
+      </ul>
