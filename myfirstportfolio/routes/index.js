@@ -131,43 +131,44 @@ router.get('/contact', function (req, res) {
 });
 
 router.post('/contact', [
-  //username must be an email
   check('email').isEmail().withMessage('Please enter a valid email id'),
-  //mobile number must be atleast 10 numbers
-  check('mobile').isLength({ min: 10 }).withMessage('Mobile numbers must be atleast 10 characters')
+  check('mobile').isLength({ min: 10 }).withMessage('Mobile  number must be atleast 10 characters')
 ],
-  function (req, res) {
-    const errors = validationResult(req);
-    console.log(JSON.stringify(errors))
+function(req, res){
+  const errors = validationResult(req);
+  console.log(JSON.stringify(errors))
+  if(!errors.isEmpty()){
+    var messages = [];
+    errors.errors.forEach(function(err){
+      console.log(JSON.stringify(err))
+      messages.push(err.msg)
+    })
+    let name = req.body.name;
+    let mobile = req.body.mobile;
+    let email = req.body.email;
+    let description = req.body.description;
+    res.render('contact', {errors: true, messages: messages, name, mobile, email, description});
+  }else{
+    // read the values and save it in the DB
+    let name = req.body.name;
+    let mobile = req.body.mobile;
+    let email = req.body.email;
+    let description = req.body.description;
 
-    if (!errors.isEmpty()) {
-      var messages = [];
-      errors.errors.forEach(function (err) {
-        messages.push(err.msg);
-      })
-
-      res.render('contact', { errors: true, messages: messages, name, email, mobile, description });
-    } else {
-      let name = req.body.name;
-      let email = req.body.email;
-      let mobile = req.body.mobile;
-      let description = req.body.description;
-
-      MongoClient.connect(url, function (err, db) {
+    MongoClient.connect(url, function(err, db){
+      if (err) throw err;
+      let dbo = db.db("myportfolio");
+      let d = new Date();
+      let contact = {name, mobile, email, message: description, date_created: d, date_modified: d};
+      dbo.collection('contact').insertOne(contact, function(err, contactObj){
         if (err) throw err;
-        let dbo = db.db('myportfolio');
-        let d = new Date();
-        let contact = { name, email, mobile, message: description, date_created: d, date_modified: d };
-        dbo.collection('contact').insertOne(contact, function (err, contactObj) {
-          if (err) throw err;
-          console.log("1 document inserted. Id = " + contactObj._id);
-          db.close();
-          res.render('contact', { success: true });
-        })
-      });
-
-    }
-  });
+        console.log("1 document inserted. Id = " + contactObj._id);
+        db.close();
+        res.render('contact', {success: true});
+      })
+    });
+  }
+})
 
 module.exports = router;
 
