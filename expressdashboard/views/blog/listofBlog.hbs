@@ -1,11 +1,11 @@
-<!--List of Projects-->
+<!--List of Blog-->
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <h1>List of Projects</h1>
+            <h1>List of Blog Posts</h1>
         </div>
         <div class="col-md-4 text-right">
-            <a href="/projects/new" class="btn btn-primary">Create New Projects</a>
+            <a href="/blog/new" class="btn btn-primary">Create New Blog</a>
         </div>
     </div>
     <table class="table table-striped table-dark">
@@ -15,14 +15,14 @@
             <th scope="col">Description</th>
             <th scope="col">Actions</th>
         </tr>
-        {{#each projects}}
+        {{#each blog}}
         <tr>
             <td><img src="{{image}}" width="70" height="70"></td>
             <td>{{title}}</td>
             <td>{{description}}</td>
             <td>
-                <a href="/projects/{{_id}}">Details</a>
-                <a href="/projects/{{_id}}/delete">Delete</a>
+                <a href="/blog/{{_id}}">Details</a>
+                <a href="/blog/{{_id}}/delete">Delete</a>
             </td>
         </tr>
         {{/each}}

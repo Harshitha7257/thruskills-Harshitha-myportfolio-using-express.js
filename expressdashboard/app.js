@@ -6,6 +6,8 @@ var logger = require('morgan');
 
 var dashboardRouter = require('./routes/dashboard');
 var authRouter = require('./routes/auth');
+const {check, validationResult}= require ('express-validator');
+
 
 var session = require('express-session');
 

@@ -1,0 +1,15 @@
+<!-- Signin Page -->
+<div class="text-center signin">
+    <form class="form-signin" action="/subscribe" method="POST">
+        <img class="mb-4" src="/images/logo.png" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Subscribe to my Newsletter</h1>
+        <label for="email"></label>
+        <input type="email" class="form-control" id="email" placeholder="Please enter your email" name="email">
+        <button type="submit" class="btn btn-primary ml-3">Subscribe</button>
+
+        {{#if success}}
+        <p class="text-success">Subscribed successfully</p>
+        {{/if}}
+        <p class="mt-5 mb-3 text-muted">&copy; Express Dashboard 2020</p>
+    </form>
+</div>
