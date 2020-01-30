@@ -37,6 +37,7 @@ router.get('/',
     res.render('index', { layout: 'layout_dashboard', title: 'My Portfolio Dashboard' });
   });
 
+  
 /* list of  Projects. */
 router.get('/projects', function (req, res, next) {
   MongoClient.connect(url, function (err, db) {
@@ -53,6 +54,7 @@ router.get('/projects', function (req, res, next) {
     })
   });
 });
+
 
 /* Create New Projects. */
 router.get('/projects/new', function (req, res, next) {
@@ -99,6 +101,7 @@ router.get('/projects/:id', function (req, res, next) {
   });
 });
 
+
 /* update Project. */
 router.post('/projects/:id', function (req, res, next) {
   let id = req.params.id;
@@ -120,6 +123,7 @@ router.post('/projects/:id', function (req, res, next) {
   });
 });
 
+
 /* delete Project. */
 router.get('/projects/:id/delete', function (req, res, next) {
   let id = req.params.id;
@@ -135,6 +139,7 @@ router.get('/projects/:id/delete', function (req, res, next) {
     })
   });
 });
+
 
 /* list of  Blog. */
 router.get('/blog', function (req, res, next) {
@@ -152,10 +157,12 @@ router.get('/blog', function (req, res, next) {
   });
 });
 
+
 /* Create New Blog. */
 router.get('/blog/new', function (req, res, next) {
   res.render('blog/createBlog', { layout: 'layout_dashboard', 'title': 'Create new Blog' })
 });
+
 
 /* Submit create Blog. */
 router.post('/blog/new', function (req, res, next) {
@@ -180,6 +187,7 @@ router.post('/blog/new', function (req, res, next) {
   });
 });
 
+
 /* Blog details. */
 router.get('/blog/:id', function (req, res, next) {
   //read the id from the path param
@@ -195,6 +203,7 @@ router.get('/blog/:id', function (req, res, next) {
     })
   });
 });
+
 
 /* update Blog. */
 router.post('/blog/:id', function (req, res, next) {
@@ -217,6 +226,7 @@ router.post('/blog/:id', function (req, res, next) {
   });
 });
 
+
 /* delete Blog. */
 router.get('/blog/:id/delete', function (req, res, next) {
   let id = req.params.id;
@@ -232,6 +242,7 @@ router.get('/blog/:id/delete', function (req, res, next) {
     })
   });
 });
+
 
 /* Contact Page. */
 router.get('/contact', function (req, res, next) {
@@ -278,42 +289,11 @@ router.post('/contact', [
     }
   });
 
+
 /* Subscribe page */
 router.get('/subscribe', function (req, res, next){
-  res.render('subscribe');
+  res.render('subscribe',{layout: 'layout_dashboard'});
 });
-
-// subscribe
-router.post('/subscribe', function (req, res) {
-  let email = req.body.email;
-  console.log(email);
-  if (email && email !== '') {
-    MongoClient.connect(url, function (err, db) {
-      if (err) throw err;
-      let dbo = db.db("myportfolio");
-      let d = new Date();
-      let newsletter = { email, date_created: d };
-      dbo.collection('newsletter').insertOne(newsletter, function (err, obj) {
-        if (err) throw err;
-        // get the projects
-        dbo.collection('projects').find({}).limit(3).toArray(function (err, projects) {
-          if (err) throw err;
-          console.log(JSON.stringify(projects));
-          // get the posts
-          dbo.collection('blog').find({}).sort({ 'date_created': -1 }).limit(3).toArray(function (err, blog) {
-            if (err) throw err;
-            console.log(JSON.stringify(blog));
-            db.close();
-            res.render('subscribe', { projects: projects, blog: blog, success: true })
-          })
-        })
-      })
-    });
-  }
-});
-
-
-
 
 
 /* Logout Page. */
