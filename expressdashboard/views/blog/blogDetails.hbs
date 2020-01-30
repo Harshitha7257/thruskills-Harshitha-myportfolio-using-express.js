@@ -1,0 +1,25 @@
+<!--Blog Details Page-->
+<div class="container">
+    {{#if success}}
+    <p class="alert-success">Blog Updated successfully.</p>
+    {{/if}}
+    <h1 class="pb-3">Blog Detail</h1>
+    <hr>
+    <form action="/blog/{{blog._id}}" method="POST">
+        <div class="form-row pt-3">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Title</label>
+                <input type="text" name="title"class="form-control" id="title" placeholder="blog title" value="{{blog.title}}">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="image">Image</label>
+                <input type="text" name="image"class="form-control" id="image"placeholder="blog image url" value="{{blog.image}}" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" placeholder="description" name="description" rows="5">{{blog.description}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
