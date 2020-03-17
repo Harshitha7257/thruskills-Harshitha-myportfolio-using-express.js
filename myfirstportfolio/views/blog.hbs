@@ -2,46 +2,54 @@
 <div class="container">
     <!-- links -->
     <nav aria-label="breadcrumb">
-                <ol class="breadcrumb color">
-                    <li class="breadcrumb-item bc-item"><a class="text-white" href="/">Home</a></li>
-                    <li class="breadcrumb-item bc-item"><a class="text-white" href="/blog">Blog </a></li>
-                </ol>
-            </nav>
+        <ol class="breadcrumb color">
+            <li class="breadcrumb-item bc-item"><a class="text-white" href="/">Home</a></li>
+            <li class="breadcrumb-item bc-item"><a class="text-white" href="/blog">Blog </a></li>
+        </ol>
+    </nav>
 
     <!-- Jumbotron -->
-    <div class="jumbotron p-3 p-md-5 rounded text-white contain">
+    <div class="jumbotron p-3 p-md-5 rounded text-white animated fadeInUp">
         <div class="col-md-12 px-0">
             <h1 class="display-4 font-italic">Building a portfolio using Bootstrap,Node,Express and MongoDB</h1>
-            <p class="lead my-3">In this project we will learn how to build a website using bootstrap and how to connect those pages using Node and Express and then how to add data in databases using MongoDB</p>
-            <p class="lead mb-0"><a href="/blog/0"
-                    class="text-white font-weight-bold">Continue reading...</a></p>
+            <p class="lead my-3">In this project we will learn how to build a website using bootstrap and how to connect
+                those pages using Node and Express and then how to add data in databases using MongoDB</p>
+            <p class="lead mb-0"><a href="/blog/0" class="text-white font-weight-bold">Continue reading...</a></p>
         </div>
     </div>
+</div>
 
-    <!-- Box-01 -->
-    
-    <div class="row mb-2">
-        {{#each blog}}
-        <div class="col-md-12">
-            <div class="card flex-md-row mb-4 box-shadow h-md-250 bg">
-                <div class="card-body d-flex flex-column align-items-start">
-                    <strong class="d-inline-block mb-2 text-primary">Bootstrap</strong>
-
-                    <h3 style="font-weight: bold; font-size: 18px;">
-                        {{title}}
-                    </h3>
-
-                    <div class="mb-1 text-muted" style="padding:10px 0px;">{{date}}</div>
-
-                    <p class="card-text mb-auto">{{this.description}}</p>
-                    <a href="/blog/{{_id}}" class="bc-item">Continue
-                        reading</a>
+{{!--Card Box  --}}
+<section id="team" class="pb-5">
+    <div class="container">
+        <div class="row">
+            {{#each blog}}
+            <!-- Team member -->
+            <div class="col-md-12">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class="img-thumbnail" width="30%" height="auto" alt="card image"
+                                            src="{{image}}"></p>
+                                    <h4 class="card-title">{{title}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title">{{title}}</h4>
+                                    <p class="card-text">{{this.description}}</p>
+                                    <a href="/blog/{{_id}}" class="bc-item">Continue reading</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <img class="card-img-right flex-auto d-none d-lg-block" src="{{image}}">
             </div>
+            {{/each}}
         </div>
-     {{/each}}
     </div>
-</div>
-</div>
-
+</section>

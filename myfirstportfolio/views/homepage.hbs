@@ -1,0 +1,137 @@
+<!--Home Page-->
+<div class="colorbg" id="particles">
+     <div id="webcoderskull">
+          <div class="container">
+               <div class="row padding">
+                    <div class="col-lg-7">
+                         <div class="text-content hasFontScale title4 " data-fontscale="0.729">
+                              <h1 class="title4 font-job">HI! ,</h1>
+                              <br>
+                              <h1 class="pl-3 font-name">I AM </h1>
+                              <h1 class="pl-3 font-name"> HARSHITHA R KUMAR</h1>
+                              <h5 class="pl-5 font-job">FULL STACK MERN DEVELOPER</h5>
+                         </div>
+                         <br>
+                         <br>
+                         <button class="button">
+                              <a class="text-white" href="/contact">GET IN TOUCH</a>
+                         </button>
+                         <button class="button">
+                              <a class="text-white" href="/resume">ABOUT ME</a>
+                         </button>
+                    </div>
+                    <img  src="/images/harshitha.jpg" class="rounded-circle img-right flex-auto d-none d-lg-block" alt="Cinque Terre"
+                         width="240" height="250">
+               </div>
+          </div>
+     </div>
+</div>
+
+<section class="bgcolor text-center p-5 mt-5 ">
+     <div class="container p-3">
+          <h3 class="title">SUBSCRIBE NOW</h3>
+          <form action="/subscribe" method="Post">
+               <input class="subscribe holder" type="email" name="email" id="email" placeholder="Enter Your Email Id">
+               <button type="submit" class="click btn-light">Subscribe</button>
+          </form>
+          {{#if success}}
+        <p class="text-success">Subscribed successfully</p>
+        {{/if}}
+     </div>
+</section>
+
+{{!-- Services --}}
+<div class="container section-padding section">
+     <div class="row justify-content-center section-padding">
+          <div class="col-lg-8 text-center section-title">
+               <h2 class="text-bold letters">SERVICE OFFERS</h2>
+          </div>
+     </div>
+     <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 Services-tab  item">
+               <div class="folded-corner service_tab_1">
+                    <div class="text">
+                         <i class="fa fa-image fa-5x fa-icon-image"></i>
+                         <p class="item-title">
+                              <h3>WP DEVELOPING</h3>
+                         </p><!-- /.item-title -->
+                         <p>WordPress is a free and open-source content management system based on PHP and MySQL.</p>
+                    </div>
+               </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 Services-tab item">
+               <div class="folded-corner service_tab_1">
+                    <div class="text">
+                         <i class="fa fa-lightbulb-o fa-5x fa-icon-image"></i>
+                         <p class="item-title">
+                              <h3> UI/UX DESIGN</h3>
+                         </p><!-- /.item-title -->
+                         <p>UX design refers to user experience design, while UI design stands for user interface
+                              design.</p>
+                    </div>
+               </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 Services-tab item">
+               <div class="folded-corner service_tab_1">
+                    <div class="text">
+                         <i class="fa fa-truck fa-5x fa-icon-image"></i>
+                         <p class="item-title">
+                              <h3>MARKETING</h3>
+                         </p><!-- /.item-title -->
+                         <p>
+                              Achieve Your Goals From Awareness to Engagement to Driving New Business.Create an ad in
+                              minutes.
+                         </p>
+                    </div>
+               </div>
+          </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 Services-tab item">
+               <div class="folded-corner service_tab_1">
+                    <div class="text">
+                         <i class="fa fa-line-chart fa-5x fa-icon-image"></i>
+                         <p class="item-title">
+                              <h3>Analytics</h3>
+                         </p><!-- /.item-title -->
+                         <p>Understand your site and app users to better evaluate the performance of your marketing,
+                              content, products, and more.Process and share your data quickly with an easy-to-use
+                              interface.
+                         </p>
+                    </div>
+               </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 Services-tab item">
+               <div class="folded-corner service_tab_1">
+                    <div class="text">
+                         <i class="fa fa-mobile fa-5x fa-icon-image"></i>
+                         <p class="item-title">
+                              <h3>IOS APPLICATION DEVELOPMENT </h3>
+                         </p><!-- /.item-title -->
+                         <p>
+                              A mobile app can be helpful in creating brand awareness.
+                         </p>
+                    </div>
+               </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 Services-tab item">
+               <div class="folded-corner service_tab_1">
+                    <div class="text">
+                         <i class="fa fa-money fa-5x fa-icon-image"></i>
+                         <p class="item-title">
+                              <h3>E-COMMERCE WEBSITES</h3>
+                         </p><!-- /.item-title -->
+                         <p>
+                              No one is self-sufficient this brings out the need for demand and supply of goods and
+                              services means of transfer of information over the Internet.
+                         </p>
+                    </div>
+               </div>
+          </div>
+     </div>
+</div>
+
+<script>
+     $( document ).ready(function() {
+  new WOW().init();
+});
+</script>
