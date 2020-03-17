@@ -8,8 +8,21 @@ let userloggedin=false;
 let user={}
 
 
+//get homepage
+router.get('/', function(req, res, next){
+  res.render('homepage');
+});
+
+//Resume
+router.get('/resume', function(req, res, next){
+  res.render('resume');
+});
+
+
+
+
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/portfolio', function (req, res, next) {
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
     let dbo = db.db('myportfolio');
@@ -49,13 +62,13 @@ router.post('/subscribe', function (req, res) {
             if (err) throw err;
             console.log(JSON.stringify(blog));
             db.close();
-            res.render('index', { projects: projects, blog: blog, success: true })
+            res.render('homepage', { projects: projects, blog: blog, success: true })
           })
         })
       })
     });
   }
-})
+});
 
 /* GET Project page. */
 router.get('/projects', function (req, res, next) {
@@ -123,11 +136,6 @@ router.get('/blog/:id', function (req, res) {
   });
 });
 
-/* GET About page. */
-router.get('/about', function (req, res, ) {
-  res.render('about', { title: 'Express hbs' });
-});
-
 /* GET Contact page. */
 router.get('/contact', function (req, res) {
   res.render('contact');
@@ -160,7 +168,7 @@ router.post('/contact', [
 
       MongoClient.connect(url, function (err, db) {
         if (err) throw err;
-        let dbo = db.db("myportfolio");
+        let dbo = db.db("users");
         let d = new Date();
         let contact = { name, mobile, email, message: description, date_created: d, date_modified: d };
         dbo.collection('contact').insertOne(contact, function (err, contactObj) {

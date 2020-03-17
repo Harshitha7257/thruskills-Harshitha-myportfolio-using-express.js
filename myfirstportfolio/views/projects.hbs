@@ -7,25 +7,31 @@
         <li class="breadcrumb-item bc-item"><a class="text-white" href="/projects">Projects</a></li>
       </ol>
     </nav>
-    <div class="row ">
-      {{#each projects}}
-      <div class="col-lg-4 my-4">
-        <div class="card shadow">
-          <img class="card-img-top" src="{{this.image}}" alt="Card image">
-          <div class="overlay-img card-bg ">
-            <div class="card-logo">
-              <h3 class="text-white text-center">{{this.heading}}</h3>
-            </div>
-            <a href="/projects/{{_id}}">
-              <div class="overlay">
-                <h2 class="text-light project-title ">{{this.title}}</h2>
-                <p class="text-light project-desc">{{this.description}}</p>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-      {{/each}}
-    </div>
   </div>
 </main>
+
+
+
+{{!-- box --}}
+<div class="container animated fadeInUp">
+  {{#each projects}}
+  <div class="flex-grid featured-content">
+    <div class="grid-item">
+      <div class="grid-item-wrapper">
+        <a href="/projects/{{_id}}">
+          <img class="grid-item-bg-img" src="{{this.image}}">
+          <div class="grid-item-content">
+            <div class="grid-item-content-details">
+              <h4 class="grid-title text-white">{{this.title}}</h4>
+              <div class="grid-details text-white">{{this.description}}</div>
+              <div class="grid-action">
+                <div class="btn btn--clear">Read More</div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
